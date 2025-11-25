@@ -1,13 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amigo Secreto Tropical</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amigo Secreto Tropical</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Animated Background - Beach Theme -->
+  <div class="animated-bg">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="floating-emoji float-1">🌴</div>
+    <div class="floating-emoji float-2">🥥</div>
+    <div class="floating-emoji float-3">🌺</div>
+    <div class="floating-emoji float-4">🐚</div>
+    <div class="floating-emoji float-5">🏄</div>
+    <div class="floating-emoji float-6">☀️</div>
+    <div class="floating-emoji float-7">🌊</div>
+    <div class="sun-rays"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-wrapper">
+        <div class="logo">
+          <span class="logo-emoji">🐚</span>
+        </div>
+        <div class="logo-glow"></div>
+      </div>
+      <h1>Amigo Secreto</h1>
+      <h2 class="subtitle-fancy">Tropical</h2>
+      <p class="tagline">Sorteio na brisa do mar! 🌊🌴</p>
+    </header>
+
+    <!-- Main Card -->
+    <div class="card">
+      <div class="card-shine"></div>
+      <div class="card-header">
+        <div class="wave-container">
+          <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,50 C150,100 350,0 500,50 C650,100 800,0 1000,50 C1150,100 1300,0 1440,50 L1440,100 L0,100 Z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Login Screen -->
+      <div id="login-screen" class="screen">
+        <div class="login-content">
+          <div class="icon-container">
+            <div class="icon-bg"></div>
+            <span class="main-icon">🔐</span>
+          </div>
+          <h2>Área Secreta</h2>
+          <p class="subtitle">Digite sua senha para descobrir quem você tirou!</p>
+
+          <div class="form-group">
+            <div class="input-wrapper">
+              <span class="input-icon">🗝️</span>
+              <input
+                type="password"
+                id="password-input"
+                placeholder="Sua senha mágica..."
+                autocomplete="off"
+              >
+            </div>
+            <p id="error-message" class="error-message"></p>
+            <button type="button" id="login-btn" class="btn-primary">
+              <span>Revelar Meu Amigo</span>
+              <span class="btn-icon">✨</span>
+            </button>
+          </div>
+
+          <div class="decorative-line">
+            <span>🎁</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reveal Screen -->
+      <div id="reveal-screen" class="screen hidden">
+        <div class="reveal-content">
+          <div class="welcome-badge">
+            <span class="wave-hand">👋</span>
+            <span>Olá, <strong id="user-name"></strong>!</span>
+          </div>
+          <h2>Seu Amigo Secreto</h2>
+          <p class="reveal-subtitle">Toque no card para descobrir!</p>
+
+          <div id="flip-card" class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front -->
+              <div class="flip-card-front">
+                <div class="card-pattern"></div>
+                <div class="gift-container">
+                  <div class="gift-glow"></div>
+                  <span class="gift-icon">🎁</span>
+                </div>
+                <p class="flip-text">Toque para revelar!</p>
+                <div class="sparkles">
+                  <span>✨</span>
+                  <span>⭐</span>
+                  <span>✨</span>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back">
+                <div class="confetti">🎉</div>
+                <p class="result-label">Você tirou...</p>
+                <div class="result-name-container">
+                  <p id="secret-friend" class="secret-friend"></p>
+                </div>
+                <p class="result-message">Capriche no presente! 🎀</p>
+                <div class="hide-hint">
+                  <span>👆</span> Toque para esconder
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="logout-btn" class="btn-secondary">
+            <span class="btn-back-icon">←</span>
+            Sair da conta
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Feito por <strong>Bruno Reis</strong> 🏖️</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
