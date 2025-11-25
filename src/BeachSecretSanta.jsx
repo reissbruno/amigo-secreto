@@ -74,68 +74,68 @@ const BeachSecretSanta = () => {
     <div className="min-h-screen bg-amber-50 font-sans text-slate-800 selection:bg-orange-200 flex flex-col items-center">
       {/* Background Decor */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-10">
-        <Waves className="absolute -top-10 -left-10 w-64 h-64 text-cyan-600" />
-        <Sun className="absolute top-10 right-10 w-40 h-40 text-orange-500 animate-spin-slow" />
-        <Palmtree className="absolute bottom-0 left-10 w-80 h-80 text-teal-700" />
+        <Waves className="absolute -top-10 -left-10 w-40 h-40 sm:w-64 sm:h-64 text-cyan-600" />
+        <Sun className="absolute top-10 right-5 sm:right-10 w-24 h-24 sm:w-40 sm:h-40 text-orange-500 animate-spin-slow" />
+        <Palmtree className="absolute bottom-0 left-5 sm:left-10 w-48 h-48 sm:w-80 sm:h-80 text-teal-700" />
       </div>
 
-      <div className="z-10 w-full max-w-lg px-4 py-8 flex flex-col flex-grow">
+      <div className="z-10 w-full max-w-lg px-3 sm:px-4 py-4 sm:py-8 flex flex-col flex-grow">
 
         {/* Header */}
-        <header className="text-center mb-8 relative">
-          <div className="inline-block p-4 rounded-full bg-white shadow-xl ring-4 ring-orange-100 mb-4 transform hover:rotate-6 transition-transform cursor-pointer">
-            <Shell className="w-12 h-12 text-orange-500 mx-auto" />
+        <header className="text-center mb-4 sm:mb-8 relative">
+          <div className="inline-block p-3 sm:p-4 rounded-full bg-white shadow-xl ring-4 ring-orange-100 mb-3 sm:mb-4 transform hover:rotate-6 transition-transform cursor-pointer">
+            <Shell className="w-10 h-10 sm:w-12 sm:h-12 text-orange-500 mx-auto" />
           </div>
-          <h1 className="text-4xl font-extrabold text-teal-800 tracking-tight drop-shadow-sm">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-teal-800 tracking-tight drop-shadow-sm">
             Amigo Secreto <br/>
             <span className="text-orange-500 font-serif italic">Tropical</span> 🌴
           </h1>
-          <p className="mt-2 text-slate-500 font-medium">
+          <p className="mt-2 text-sm sm:text-base text-slate-500 font-medium px-2">
             Digite sua senha para ver quem você tirou!
           </p>
         </header>
 
         {/* Main Card */}
-        <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-white/50 overflow-hidden flex flex-col flex-grow relative">
+        <div className="bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-2xl border border-white/50 overflow-hidden flex flex-col flex-grow relative">
 
           {/* Top Wave Decoration */}
           <div className="h-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 w-full" />
 
-          <div className="p-6 flex-grow flex flex-col">
+          <div className="p-4 sm:p-6 flex-grow flex flex-col">
 
             {/* LOGIN SCREEN */}
             {step === 'login' && (
-              <div className="space-y-6 flex flex-col items-center justify-center h-full">
-                <div className="text-center space-y-2">
-                  <Lock className="w-12 h-12 text-teal-500 mx-auto mb-2" />
-                  <h2 className="text-2xl font-bold text-teal-800">Digite sua senha</h2>
-                  <p className="text-slate-500 text-sm">
+              <div className="space-y-4 sm:space-y-6 flex flex-col items-center justify-center h-full">
+                <div className="text-center space-y-2 px-2">
+                  <Lock className="w-10 h-10 sm:w-12 sm:h-12 text-teal-500 mx-auto mb-2" />
+                  <h2 className="text-xl sm:text-2xl font-bold text-teal-800">Digite sua senha</h2>
+                  <p className="text-slate-500 text-xs sm:text-sm">
                     Cada participante tem uma senha única
                   </p>
                 </div>
 
-                <div className="w-full max-w-xs space-y-4">
+                <div className="w-full max-w-xs space-y-3 sm:space-y-4 px-2">
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
                     placeholder="Sua senha secreta..."
-                    className="w-full bg-amber-50/50 border-2 border-amber-100 text-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100 transition-all placeholder:text-slate-400 text-center text-lg"
+                    className="w-full bg-amber-50/50 border-2 border-amber-100 text-slate-700 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 focus:outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100 transition-all placeholder:text-slate-400 text-center text-base sm:text-lg"
                     autoFocus
                   />
 
                   {error && (
-                    <p className="text-red-500 text-sm font-medium text-center animate-bounce">
+                    <p className="text-red-500 text-xs sm:text-sm font-medium text-center animate-bounce">
                       {error}
                     </p>
                   )}
 
                   <button
                     onClick={handleLogin}
-                    className="w-full py-4 rounded-2xl font-bold text-lg shadow-lg transform transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-teal-400 to-teal-500 text-white hover:scale-[1.02] hover:shadow-teal-200/50 active:scale-95"
+                    className="w-full py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg shadow-lg transform transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-teal-400 to-teal-500 text-white hover:scale-[1.02] hover:shadow-teal-200/50 active:scale-95"
                   >
-                    <LogIn size={24} />
+                    <LogIn size={20} className="sm:w-6 sm:h-6" />
                     Entrar
                   </button>
                 </div>
@@ -144,18 +144,18 @@ const BeachSecretSanta = () => {
 
             {/* REVEAL SCREEN */}
             {step === 'reveal' && loggedUser && (
-              <div className="flex flex-col items-center justify-center h-full">
-                <div className="text-center mb-6">
-                  <p className="text-slate-400 text-sm uppercase tracking-widest font-bold mb-1">
+              <div className="flex flex-col items-center justify-center h-full px-2">
+                <div className="text-center mb-4 sm:mb-6">
+                  <p className="text-slate-400 text-xs sm:text-sm uppercase tracking-widest font-bold mb-1">
                     Olá, {loggedUser}!
                   </p>
-                  <h2 className="text-2xl font-bold text-teal-800">
+                  <h2 className="text-xl sm:text-2xl font-bold text-teal-800">
                     Descubra seu amigo secreto
                   </h2>
                 </div>
 
                 <div
-                  className="w-full max-w-xs aspect-[3/4] perspective-1000 group cursor-pointer"
+                  className="w-full max-w-[280px] sm:max-w-xs aspect-[3/4] perspective-1000 group cursor-pointer"
                   onClick={() => setIsRevealed(!isRevealed)}
                 >
                   <div
@@ -168,36 +168,36 @@ const BeachSecretSanta = () => {
 
                     {/* Front of Card */}
                     <div
-                      className="absolute w-full h-full backface-hidden bg-gradient-to-br from-orange-400 to-pink-500 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white p-6 border-4 border-white"
+                      className="absolute w-full h-full backface-hidden bg-gradient-to-br from-orange-400 to-pink-500 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white p-4 sm:p-6 border-4 border-white"
                       style={{ backfaceVisibility: 'hidden' }}
                     >
-                      <Gift size={64} className="mb-4 animate-bounce" />
-                      <p className="font-bold text-xl text-center">
+                      <Gift size={56} className="sm:w-16 sm:h-16 mb-3 sm:mb-4 animate-bounce" />
+                      <p className="font-bold text-lg sm:text-xl text-center px-2">
                         Toque para ver quem você tirou!
                       </p>
-                      <p className="text-xs mt-4 opacity-80">
+                      <p className="text-xs mt-3 sm:mt-4 opacity-80">
                         (Cuidado com os curiosos de plantão)
                       </p>
                     </div>
 
                     {/* Back of Card */}
                     <div
-                      className="absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center p-6 border-4 border-teal-400"
+                      className="absolute w-full h-full backface-hidden rotate-y-180 bg-white rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center p-4 sm:p-6 border-4 border-teal-400"
                       style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
                     >
-                      <p className="text-slate-400 font-medium mb-2">
+                      <p className="text-slate-400 font-medium mb-2 text-sm sm:text-base">
                         Seu amigo secreto é...
                       </p>
-                      <div className="my-6">
-                        <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600 break-words leading-tight">
+                      <div className="my-4 sm:my-6">
+                        <span className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600 break-words leading-tight">
                           {MATCHES[loggedUser]}
                         </span>
                       </div>
-                      <p className="text-sm text-slate-500 italic mt-4">
+                      <p className="text-xs sm:text-sm text-slate-500 italic mt-3 sm:mt-4 px-2">
                         "Espero que não seja um par de meias!" 🧦
                       </p>
-                      <div className="mt-8 flex gap-2 items-center text-orange-500 text-xs font-bold uppercase tracking-wider">
-                        <EyeOff size={16} />
+                      <div className="mt-6 sm:mt-8 flex gap-2 items-center text-orange-500 text-xs font-bold uppercase tracking-wider">
+                        <EyeOff size={14} className="sm:w-4 sm:h-4" />
                         Toque para esconder
                       </div>
                     </div>
@@ -207,7 +207,7 @@ const BeachSecretSanta = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="mt-8 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors"
+                  className="mt-6 sm:mt-8 text-slate-400 hover:text-slate-600 text-xs sm:text-sm font-medium transition-colors"
                 >
                   ← Sair (para outra pessoa ver)
                 </button>
@@ -217,8 +217,8 @@ const BeachSecretSanta = () => {
           </div>
         </div>
 
-        <footer className="mt-6 text-center text-slate-400 text-xs font-medium">
-          <p>Feito com ❤️ e Areia Virtual.</p>
+        <footer className="mt-4 sm:mt-6 text-center text-slate-400 text-xs sm:text-sm font-medium">
+          <p>Feito por Bruno Reis.</p>
         </footer>
       </div>
     </div>
