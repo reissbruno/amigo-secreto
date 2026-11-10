@@ -11,12 +11,12 @@ const USERS = {
 // Sorteio fixo e validado manualmente
 // Regras: ninguém tira a si mesmo, Renato não tira Paula
 const MATCHES = {
-  'Paula': 'Julia',
-  'Renato': 'Cristina',
-  'Bruno': 'Renato',
-  'Cristina': 'Sthéfano',
+  'Paula': 'Bruno',
+  'Renato': 'Sthéfano',
+  'Bruno': 'Cristina',
+  'Cristina': 'Renato',
   'Julia': 'Paula',
-  'Sthéfano': 'Bruno'
+  'Sthéfano': 'Julia'
 };
 
 // Estado
@@ -62,7 +62,7 @@ function showError(message) {
   errorMessage.textContent = message;
   errorMessage.style.animation = 'none';
   setTimeout(() => {
-    errorMessage.style.animation = 'bounce 0.5s';
+    errorMessage.style.animation = 'shake 0.5s ease-in-out';
   }, 10);
 }
 
@@ -100,6 +100,23 @@ passwordInput.addEventListener('keydown', (e) => {
 logoutBtn.addEventListener('click', handleLogout);
 
 flipCard.addEventListener('click', toggleCard);
+
+// Brilho especular do vidro acompanha o ponteiro
+const glassPanels = document.querySelectorAll('.glass');
+let pointerFrame = null;
+
+window.addEventListener('pointermove', (e) => {
+  // Só com mouse: no toque, o brilho pulava para o dedo e parecia um clique
+  if (e.pointerType !== 'mouse' || pointerFrame) return;
+  pointerFrame = requestAnimationFrame(() => {
+    pointerFrame = null;
+    glassPanels.forEach((panel) => {
+      const rect = panel.getBoundingClientRect();
+      panel.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+      panel.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+    });
+  });
+}, { passive: true });
 
 // Focus no input ao carregar
 window.addEventListener('load', () => {
